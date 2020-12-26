@@ -48,7 +48,10 @@ export default {
   },
    mounted() {
      if (!this.currentUser) {
-      this.$router.push('/login');
+      console.log('Ruta perfil ', this.$router);
+    }
+    else{
+      console.log('else mounted ');
     }
     userService.getAdminBoard().then(
       response => {

@@ -1,8 +1,9 @@
 import axios from 'axios';
 //import { data } from 'jquery';
 
-/*const API_URL = 'http://localhost:8080/api/auth/';*/
-const API_URL = 'https://diesel.grupoitsur.com/api/login';
+const API_URL = 'https://pegasus82.peginstances.com/api/login';
+//const API_URL = 'https://diesel.grupoitsur.com/api/login';
+
 
 class AuthService {
   login(user) {

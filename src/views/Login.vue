@@ -69,7 +69,8 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push('/profile');
+      console.log('created login');
+      this.$router.push('/login');
     }
   },
   methods: {
@@ -78,15 +79,19 @@ export default {
       this.$validator.validateAll().then(isValid => {
         if (!isValid) {
           this.loading = false;
+          this.$router.push('/login');
+          console.log('no es valido!');
           return;
         }
 
         if (this.user.username && this.user.password) {
           this.$store.dispatch('auth/login', this.user).then(
             () => {
+              console.log('manoa al perfil');
               this.$router.push('/profile');
             },
             error => {
+              console.log('error login');
               this.loading = false;
               this.message =
                 (error.response && error.response.data && error.response.data.message) ||

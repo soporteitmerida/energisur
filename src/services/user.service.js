@@ -11,18 +11,18 @@ class UserService {
     return axios.get(API_URL + 'devices',{ headers: authHeader() });
   }
 
-  getModeratorBoard() {
-    return axios.get(API_URL + 'vehicles', { headers: authHeader() });
+  getVehicles() {
+    return axios.get(API_URL + 'vehicles'+'?select=id,name,groups', { headers: authHeader() });
   }
 
   getAdminBoard() {
     return axios.get(API_URL + 'user', { headers: authHeader() });
   }
-  getTrips(){
-    return axios.get(API_URL + 'trips' 
-    + '?groups=260&from=2020-11-25T10:05:00&to=2020-11-28T11:00:00&fields=id,vid,aid,groups,distance,mean_speed,duration,moving,start_time&distance=km&time=minute&speed=kph'
-    , {headers: authHeader()});
-  }
+  // getTrips(){
+  //   return axios.get(API_URL + 'trips' 
+  //   +'?groups=260&from=2020-11-25T10:05:00&to=2020-11-28T11:00:00&fields=id,vid,aid,groups,distance,mean_speed,duration,moving,start_time&distance=km&time=minute&speed=kph'
+  //   , {headers: authHeader()});
+  // }
 
 }
 export default new UserService();
